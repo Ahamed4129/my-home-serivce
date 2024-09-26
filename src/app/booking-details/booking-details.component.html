@@ -1,0 +1,48 @@
+
+<!-- booking -->
+<div  class="booking-container">
+    <div class="status-label">Booked</div>
+    <h1>BOOKING</h1>
+  
+    <div class="customer-details">
+      <strong>{{ bookingDetails.name }}</strong>
+      <div>{{ bookingDetails.addressLine1 }}</div>
+      <div>{{ bookingDetails.addressLine2 }}</div>
+      <div>{{ bookingDetails.addressLine3 }}</div>
+      <div>{{ bookingDetails.email }}</div>
+      <div>{{ bookingDetails.phone }}</div>
+    </div>
+  
+    <div class="booking-info">
+      <div>Booking Number: {{ bookingDetails.bookingNumber }}</div>
+      <div>Booking Date: {{ bookingDetails.bookingDate }}</div>
+      <div>Appointment Date: {{ bookingDetails.appointmentDate }}</div>
+      <div>Appointment Time: {{ bookingDetails.appointmentTime }}</div>
+      <div class="total-amount">{{ bookingDetails.totalAmount }}</div>
+      <div>TOTAL AMOUNT</div>
+    </div>
+  
+    <table class="service-details">
+      <thead>
+        <tr>
+          <th>Service / Addon Details</th>
+          <th>Quantity</th>
+          <th>Rate</th>
+          <th>Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let service of serviceDetails">
+          <td>{{ service.name }}</td>
+          <td>{{ service.quantity }}</td>
+          <td>{{ service.rate }}</td>
+          <td>{{ service.rate * service.quantity }}</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <div class="total">
+      <strong>Total</strong>
+      <!-- <span>{{ subtotal }}</span> -->
+    </div>
+  </div>

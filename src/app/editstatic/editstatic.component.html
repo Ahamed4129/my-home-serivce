@@ -1,0 +1,30 @@
+<form [formGroup]="pageForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="title">Title</label>
+      <input id="title" formControlName="title" type="text" class="form-control" placeholder="Page Title" />
+    </div>
+  
+    <div>
+      <label for="content">Content</label>
+      <input id="content" formControlName="content" type="text" class="form-control" placeholder="Content" />
+
+    </div>
+  
+    <div>
+      <label for="banner">Banner</label>
+      <input id="banner" formControlName="banner" type="file" (change)="onFileSelected($event)" />
+    </div>
+  
+    <div>
+      <label for="metaTitle">Meta Title</label>
+      <input id="metaTitle" formControlName="metaTitle" type="text" class="form-control" placeholder="Meta Title" />
+    </div>
+  
+    <div>
+      <label for="metaDescription">Meta Description</label>
+      <textarea id="metaDescription" formControlName="metaDescription" class="form-control" placeholder="Meta Description"></textarea>
+    </div>
+  
+    <button type="submit" class="btn btn-primary">Save</button>
+  </form>
+  

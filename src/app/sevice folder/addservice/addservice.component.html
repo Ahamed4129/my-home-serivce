@@ -1,0 +1,40 @@
+<div>
+  <h2>{{ formTitle }}</h2>
+  <form (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+    <label for="category">Category:</label>
+    <select id="category" name="category" [(ngModel)]="newService.serviceName" required>
+      <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+    </select>
+
+    <label for="serviceName">Service Name:</label>
+    <input type="text" id="serviceName" name="serviceName" [(ngModel)]="newService.category" required>
+
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" [(ngModel)]="newService.description" required></textarea>
+
+    <label for="image">Image:</label>
+    <input type="file" id="image" name="image" (change)="onFileChange($event)" accept="image/*">
+
+    <label for="type">Type:</label>
+    <select id="type" name="type" [(ngModel)]="newService.type" required>
+      <option *ngFor="let type of types" [value]="type">{{ type }}</option>
+    </select>
+
+    <div *ngIf="newService.type === 'Variation'" class="variations-container">
+      <div class="variations-header">
+        <span>Variations</span>
+        <button type="button" (click)="addVariation()">Add</button>
+      </div>
+      <div *ngFor="let variation of newService.variations; let i = index" class="variation-item">
+        <input type="text" [(ngModel)]="variation.name" [name]="'variationName' + i" placeholder="Name" required>
+        <input type="text" [(ngModel)]="variation.price" [name]="'variationPrice' + i" placeholder="Price" required>
+        <button type="button" (click)="removeVariation(i)">Remove</button>
+      </div>
+    </div>
+
+    <label for="price" *ngIf="newService.type !== 'Variation'">Price:</label>
+    <input type="text" id="price" name="price" [(ngModel)]="newService.price" *ngIf="newService.type !== 'Variation'">
+
+    <button type="submit">Save</button>
+  </form>
+</div>

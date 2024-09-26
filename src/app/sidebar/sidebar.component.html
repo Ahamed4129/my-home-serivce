@@ -1,0 +1,55 @@
+<div class="sidebar">
+   <mat-nav-list>
+     <a mat-list-item
+        routerLink="/dashboard"
+        routerLinkActive="selected"
+        (click)="selectItem('Dashboard')">
+        <h3 class="nav-item"><mat-icon>dashboard</mat-icon>Dashboard</h3>
+     </a>
+     <a  mat-list-item
+        routerLink="/categories"
+        routerLinkActive="selected" 
+        (click)="selectItem('Categories')">
+        
+        <h3 class="nav-item"><mat-icon>fullscreen_exit</mat-icon>Categories</h3>
+     </a>
+     <a mat-list-item
+        routerLink="/service"
+        routerLinkActive="selected"
+        (click)="selectItem('Service')">
+        <h3 class="nav-item"><mat-icon>list</mat-icon>Service</h3>
+     </a>
+     <a mat-list-item
+        routerLink="/new-booking"
+        routerLinkActive="selected"
+        (click)="selectItem('New Booking')">
+        <h3 class="nav-item"><mat-icon>add</mat-icon>New Booking</h3>
+     </a>
+     <a mat-list-item
+        routerLink="/booking-calendar"
+        routerLinkActive="selected"
+        (click)="selectItem('Booking Calendar')">
+        <h3 class="nav-item"><mat-icon>calendar_today</mat-icon>Booking</h3>
+     </a>
+     <a mat-list-item
+        routerLink="/testimonials"
+        routerLinkActive="selected"
+        (click)="selectItem('Testimonials')">
+        <h3 class="nav-item"><mat-icon>insert_drive_file</mat-icon>Testimonials</h3>
+     </a>
+     <a mat-list-item
+        routerLink="/static-pages"
+        routerLinkActive="selected"
+        (click)="selectItem('Static Pages')">
+        <h3 class="nav-item"><mat-icon>horizontal_split</mat-icon>Static Pages</h3>
+     </a>
+     <a mat-list-item
+        routerLink="/settings"
+        routerLinkActive="selected"
+        (click)="selectItem('Settings')">
+        <h3 class="nav-item"><mat-icon>settings</mat-icon>Settings</h3>
+     </a>
+   </mat-nav-list>
+   
+   <i class="bi bi-person-fill"></i>
+ </div>

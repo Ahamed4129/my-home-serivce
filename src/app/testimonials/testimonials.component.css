@@ -1,0 +1,50 @@
+.review-container {
+    width: 100%;
+    margin: 20px auto;
+  }
+  
+  .search-bar {
+    text-align: left;
+    margin-bottom: 10px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+  
+  .stars {
+    display: flex;
+  }
+  
+  .fa {
+    color: gold;
+    margin-right: 2px;
+  }
+  
+  button {
+    cursor: pointer;
+    border: none;
+    /* background-color: transparent; */
+    font-size: 18px;
+    text-align: left;
+  }
+  .button-container {
+    display: flex;
+    justify-content: flex-end; /* Aligns the button to the right */
+  }
+  
+  

@@ -1,0 +1,43 @@
+.sidebar {
+    background-color:black; 
+    
+    height:97vh;
+    padding: 10px; 
+  }
+  
+  .selected {
+     color: rgb(237, 239, 241);
+  }
+ h3{
+color: rgb(252, 249, 245);
+ }
+  
+  
+  mat-nav-list a.selected {
+    background-color: #1ab2fe; 
+     }
+  
+   
+  
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 8px; /* Adjusts the space between the icon and the text */
+      margin: 0;
+      font-weight: normal;
+    }
+  
+    mat-icon {
+      vertical-align: middle; /* Aligns the icon vertically with the text */
+    }
+  
+    mat-nav-list a {
+      text-decoration: none;
+      color: inherit; /* Ensures the text color follows the theme */
+    }
+  
+    .selected {
+      font-weight: bold; /* Highlight the selected item */
+      background-color: #f0f0f0; /* Optional: Add a background color for the selected item */
+    }
+  

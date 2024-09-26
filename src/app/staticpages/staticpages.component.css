@@ -1,0 +1,49 @@
+.content-list {
+    width: 60%;
+    margin: 0 auto;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  img {
+    width: 50px;
+    height: 50px;
+  }
+  
+  button {
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    font-size: 18px;
+  }
+  
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .pagination button {
+    margin: 0 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    background-color: white;
+  }
+  
+  .pagination span {
+    padding: 0 10px;
+    font-size: 16px;
+  }
+  

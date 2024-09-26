@@ -1,0 +1,29 @@
+.container {
+    max-width: 600px;
+    margin: auto;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .fa-star, .fa-star-o {
+    font-size: 24px;
+    cursor: pointer;
+    color: gold;
+    margin-right: 5px;
+  }
+  
+  button {
+    padding: 10px 15px;
+    background-color: #007BFF;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:disabled {
+    background-color: #CCCCCC;
+  }
+  

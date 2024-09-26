@@ -1,0 +1,24 @@
+<div class="content-list">
+    <table>
+      <thead>
+        <tr>
+          <th>Banner</th>
+          <th>Title</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of items | slice: (currentPage - 1) * itemsPerPage : currentPage * itemsPerPage">
+          <td> <img [src]="'https://localhost:7163/' + item.banner" class="img-thumbnail" alt="{{ item.banner }}" width="60"  /></td>
+          <td>{{ item.title }}</td>
+          <td><button (click)="editItem(item.id)">✏️</button></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="pagination">
+      <button (click)="previousPage()" [disabled]="currentPage === 1">‹</button>
+      <span>{{ currentPage }}</span>
+      <button (click)="nextPage()" [disabled]="currentPage === totalPages">›</button>
+    </div>
+  </div>
+  

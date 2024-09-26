@@ -1,0 +1,14 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav [mode]="sidenavMode" opened>
+    <app-sidebar></app-sidebar>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar>
+      <div class="header-container">
+        <h1 class="page-title">{{ pageTitle }}</h1>
+        <h2 class="page-heading">{{ pageHeading }}</h2>
+      </div>
+    </mat-toolbar>
+    <router-outlet (activate)="onRouteChange($event)"></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

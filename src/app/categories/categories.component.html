@@ -1,0 +1,57 @@
+<div class="container mt-4">
+  <div class="search-bar mb-3">
+    <input
+      class="form-control"
+      type="text"
+      placeholder="Search"
+      [(ngModel)]="searchTerm"
+    />
+  </div>
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Category</h2>
+    <button class="btn btn-primary" (click)="createNewCategory()">
+      <i class="fa fa-plus"></i> New Category
+    </button>
+  </div>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- | filter: searchTerm -->
+      <tr *ngFor="let item of items">
+        <td>
+          <img [src]="'https://localhost:7163/' + item.image" class="img-thumbnail" alt="{{ item.image }}" width="60" />
+      </td>
+      
+        <td>{{ item.name }}</td>
+        <td>{{ item.description }}</td>
+        <td>
+          <button class="btn btn-primary" (click)="editItem(item.id)">
+            <i class="fa fa-pencil">✏️</i>
+          </button>
+          <button class="btn btn-danger" (click)="deleteItem(item.id)">
+            <i class="fa fa-trash">🗑️</i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <li class="page-item" [class.disabled]="currentPage === 1">
+        <a class="page-link" (click)="previousPage()">Previous</a>
+      </li>
+      <li class="page-item" [class.disabled]="currentPage === totalPages">
+        <a class="page-link" (click)="nextPage()">Next</a>
+      </li>
+    </ul>
+  </nav>
+</div>

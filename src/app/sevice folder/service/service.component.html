@@ -1,0 +1,48 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Services</h2>
+    <button class="btn btn-primary" (click)="createNewService()">
+      <i class="fa fa-plus"></i> New Service
+    </button>
+  </div>
+  <p>Here is the overview of all the services.</p>
+
+  <div class="search-bar mb-3">
+    <input
+      class="form-control"
+      type="text"
+      placeholder="Search"
+      [(ngModel)]="searchTerm"
+    />
+  </div>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Description</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let service of dataSource.data">
+        <td><img [src]="'https://localhost:7163/' + service.image" class="img-thumbnail" alt="{{ service.image }}" width="60" />
+          <!-- <img [src]="service.image" class="img-thumbnail" alt="{{ service.name }}" width="60"/>
+          </td> -->
+        <td>{{ service.name }}</td>
+        <td>{{ service.category }}</td>
+        <td>{{ service.description | slice:0:50 }}{{ service.description.length > 50 ? '...' : '' }}</td>
+        <td>
+          <button class="btn btn-primary" (click)="editService(service.id)">
+            <i class="fa fa-pencil">✏️</i>
+          </button>
+          <button class="btn btn-danger" (click)="deleteService(service.id)">
+            <i class="fa fa-trash">🗑️</i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

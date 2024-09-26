@@ -1,0 +1,102 @@
+
+<div class="container mt-4">
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Search" />
+    </div>
+  
+    <div class="table-responsive mt-3">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Date/Time</th>
+            <th>User</th>
+            <th>Service</th>
+            <th>Sub Total</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let booking of bookings">
+            <td> {{ booking.id }}</td>
+            <td>{{ booking.appointmentDate | date: 'dd-MM-yyyy'  }}</td>
+            <td>
+              {{ booking.user }} <br />
+              {{ booking.user.email }} <br />
+              {{ booking.user.phone }}
+            </td>
+            <td>
+              <div *ngFor="let service of booking.services">
+                {{service.name}},
+              </div>
+            </td>
+            <td>{{ booking.total }}</td>
+            <td>
+              <span [ngClass]="{'text-success': booking.status === 'Booked', 'text-danger': booking.status === 'Cancelled'}">
+                {{ booking.sendPaymentLink }}
+              </span>
+            </td>
+            <td>
+            
+              <button class="css-1d9grgl ant-btn ant-btn-default" type="button" (click)="toggleBookingContainer(booking)">
+                <span role="img" aria-label="eye" class="anticon anticon-eye">
+                  <svg focusable="false" data-icon="eye" width="1em" height="1em" fill="currentColor" aria-hidden="true" viewBox="64 64 896 896">
+                    <path d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z">
+                    </path>
+                  </svg>
+                </span>
+              </button>
+              
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+  <div *ngIf="isBookingContainerVisible" class="booking-container">
+    <div class="status-label">Booked</div>
+    <h1>BOOKING</h1>
+  
+    <div class="customer-details">
+      <strong>{{ selectedBooking.user }}</strong>
+      <div>{{ selectedBooking.address1 }}</div>
+      <div>{{ selectedBooking.address2 }}</div>
+      <div>{{ selectedBooking.city }}</div>
+      <div>{{ selectedBooking.state }}</div>
+      <div>{{ selectedBooking.pincode }}</div>
+    </div>
+  
+    <div class="booking-info">
+      <div>Booking Number: {{ selectedBooking.id }}</div>
+      <div>Appointment Date: {{ selectedBooking.appointmentDate | date: 'dd-MM-yyyy' }}</div>
+      <div>Appointment Time: {{ selectedBooking.appointmentTime }}</div>
+      <div class="total-amount">Total Amount: {{ selectedBooking.total }}</div>
+    </div>
+  
+    <table class="service-details">
+      <thead>
+        <tr>
+          <th>Service / Addon Details</th>
+          <th>Quantity</th>
+          <th>Rate</th>
+          <th>Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let service of selectedBooking.services">
+          <td>{{ service.name }}</td>
+          <td>{{ service.quantity }}</td>
+          <td>{{ service.price }}</td>
+          <td>{{ service.price * service.quantity }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="total">
+      <strong>Total</strong>
+      <span>{{ selectedBooking.total }}</span>
+    </div>
+  </div>
+  

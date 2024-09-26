@@ -1,0 +1,99 @@
+<div class="container mt-4">
+    <form (ngSubmit)="submitBooking($event)">
+        <div class="form-group col-md-6">
+            <label for="User">User</label>
+            <input type="text" class="form-control" id="User" placeholder="Select User" [(ngModel)]="booking.user" name="user" required>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="Date">Appointment Date</label>
+                <input type="date" class="form-control" id="Date" [(ngModel)]="booking.date" name="date" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="Time">Appointment Time</label>
+                <input type="time" class="form-control" id="Time" [(ngModel)]="booking.time" name="time" required>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="address1">Address 1</label>
+                <input type="text" class="form-control" id="address1" placeholder="Enter Address 1" [(ngModel)]="booking.address1" name="address1">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="address2">Address 2</label>
+                <input type="text" class="form-control" id="address2" placeholder="Enter Address 2" [(ngModel)]="booking.address2" name="address2">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="city">City</label>
+                <input type="text" class="form-control" id="city" placeholder="Enter City" [(ngModel)]="booking.city" name="city">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="state">State</label>
+                <input type="text" class="form-control" id="state" placeholder="Enter State" [(ngModel)]="booking.state" name="state">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="pincode">Pincode</label>
+                <input type="text" class="form-control" id="pincode" placeholder="Enter Pincode" [(ngModel)]="booking.pincode" name="pincode">
+            </div>
+        </div>
+
+        <div class="form-row align-items-end">
+            <div class="form-group col-md-6">
+                <label for="service">Service</label>
+                <select id="service" class="form-control" [(ngModel)]="singleSelectedService" name="service" >
+                    <option *ngFor="let service of services" [ngValue]="service.id">{{ service.name }}</option>
+                </select>
+            </div>
+            <div class="form-group col-md-2">
+                <button type="button" class="btn btn-primary" (click)="addService()">Add Service</button>
+            </div>
+        </div>
+        
+        
+        <div class="table-responsive mt-3">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Service</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let service of selectedServices">
+                        <td>{{ service.name }}</td>
+                        <td>{{ service.quantity }}</td>
+                        <td>{{ service.price }}</td>
+                        <td>
+                            <button type="button" class="btn btn-danger" (click)="removeService(service)">Remove</button>
+                        </td>
+                    </tr>
+                    <tr *ngIf="selectedServices.length === 0">
+                        <td colspan="4" class="text-center">
+                            <img src="path-to-empty-box-image" alt="No data" style="width: 50px;">
+                            <p>No data</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="mt-4">
+            <h5>Total: {{ total }}</h5>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="sendPaymentLink" [(ngModel)]="sendPaymentLink" name="sendPaymentLink">
+                <label class="form-check-label" for="sendPaymentLink">
+                    Send Payment Link to User
+                </label>
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+        </div>
+    </form>
+</div>

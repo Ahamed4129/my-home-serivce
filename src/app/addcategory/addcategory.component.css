@@ -1,0 +1,86 @@
+/* Container for the form */
+div {
+  max-width: 500px; /* Increased width for better form appearance */
+  margin: 20px auto; /* Center the container and add vertical spacing */
+  padding: 30px; /* Space around the content */
+  border-radius: 10px; /* Rounded corners for a softer look */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+  background-color: #fff; /* White background for a clean look */
+}
+
+/* Style for the heading */
+h2 {
+  text-align: center; /* Center-align the heading text */
+  margin-bottom: 25px; /* Space below the heading for separation */
+  font-family: 'Helvetica Neue', Arial, sans-serif; /* Font style */
+  font-size: 24px; /* Adjusted font size for prominence */
+  font-weight: 700; /* Bold weight for emphasis */
+  color: #131211; /* Dark color for better readability */
+  position: relative; /* For positioning pseudo-elements */
+}
+
+/* Decorative line below the heading */
+h2::after {
+  content: ''; /* Empty content for decorative line */
+  display: block; /* Block-level element for the line */
+  width: 50%; /* Width of the line */
+  height: 3px; /* Thickness of the line */
+  background-color: #131313; /* Line color */
+  margin: 10px auto 0; /* Center the line and add space from the heading */
+  border-radius: 2px; /* Rounded edges for the line */
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Space between form elements */
+}
+
+label {
+  font-weight: bold; /* Bold label text */
+  color: #444; /* Darker color for better contrast */
+  font-family: 'Helvetica Neue', Arial, sans-serif; /* Font style */
+}
+
+input[type="text"],
+textarea {
+  padding: 10px; /* Padding inside input fields */
+  border: 1px solid #ccc; /* Light grey border */
+  border-radius: 5px; /* Rounded corners for input fields */
+  font-family: 'Helvetica Neue', Arial, sans-serif; /* Font style */
+  font-size: 16px; /* Font size for readability */
+}
+
+textarea {
+  resize: vertical; /* Allow vertical resizing */
+  min-height: 100px; /* Minimum height for text area */
+}
+
+input[type="file"] {
+  border: none; /* Remove border from file input */
+}
+
+button[type="submit"] {
+  padding: 12px 20px; /* Padding inside the button */
+  background-color: #1ab2fe;  /* Green background color */
+  color: white; /* White text color */
+  border: none; /* Remove border */
+  border-radius: 5px; /* Rounded corners for button */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-family: 'Helvetica Neue', Arial, sans-serif; /* Font style */
+  font-size: 18px; /* Font size for better readability */
+  transition: background-color 0.3s, transform 0.2s; /* Smooth transition effects */
+}
+
+button[type="submit"]:hover {
+  background-color: #073e52; /* Darker shade on hover */
+  transform: scale(1.05); /* Slight scale effect on hover */
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 600px) {
+  div {
+    max-width: 90%; /* Adjust width for smaller screens */
+    padding: 20px; /* Adjust padding for better fit */
+  }
+}
